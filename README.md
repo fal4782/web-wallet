@@ -19,7 +19,7 @@ A React app to generate Ethereum and Solana wallets using a 12-word mnemonic.
 
 2. Start the application:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ## Usage
