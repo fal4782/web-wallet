@@ -21,12 +21,16 @@ export function SolanaWallet({ mnemonic }: { mnemonic: string }) {
     updateBalances();
   }, [publicKeys]);
 
-  const handleAddWallet = () => {
-    const seed = mnemonicToSeed(mnemonic);
+  const handleAddWallet = async () => {
+    console.log("handleAddWallet called");
+
+    const seed = await mnemonicToSeed(mnemonic);
     const path = `m/44'/501'/${currentIndex}'/0'`;
-    const derivedSeed = derivePath(path, seed.toString()).key;
+    const derivedSeed = derivePath(path, seed.toString("hex")).key;
     const secret = nacl.sign.keyPair.fromSeed(derivedSeed).secretKey;
     const keypair = Keypair.fromSecretKey(secret);
+    console.log(keypair.publicKey.toBase58());
+    console.log(keypair.secretKey);
 
     setCurrentIndex(currentIndex + 1);
     setPublicKeys([...publicKeys, keypair.publicKey]);
