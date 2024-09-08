@@ -46,12 +46,12 @@ const App = () => {
         <div className="mt-12 w-full max-w-2xl space-y-8">
           <div className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-xl">
             <h2 className="text-2xl font-semibold mb-4">Ethereum Wallet</h2>
-            <EthWallet mnemonic={mnemonic} />
+            <EthWallet mnemonic={mnemonic} key={mnemonic} />
           </div>
 
           <div className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-xl">
             <h2 className="text-2xl font-semibold mb-4">Solana Wallet</h2>
-            <SolanaWallet mnemonic={mnemonic} />
+            <SolanaWallet mnemonic={mnemonic} key={mnemonic} />
           </div>
         </div>
       )}
